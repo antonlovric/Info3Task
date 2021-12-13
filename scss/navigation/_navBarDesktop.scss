@@ -1,0 +1,20 @@
+@use '../misc/variables' as *;
+.nav-bar {
+  grid-area: nav-bar;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  &__element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    aspect-ratio: 1;
+    background-color: #7b88f2;
+    height: 20%;
+    border: 2px solid black;
+    font-size: 6rem;
+  }
+}
