@@ -7,14 +7,27 @@
   align-items: center;
   position: relative;
   &__element {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto;
     aspect-ratio: 1;
-    background-color: #7b88f2;
+    background-color: $lightBlueColor;
     height: 20%;
     border: 2px solid black;
     font-size: 6rem;
+    transition: background-color 0.3s ease-in-out;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
   }
+}
+
+.orange-background {
+  background-color: $orangeColor;
+}
+
+.answered {
+  background-color: limegreen;
 }

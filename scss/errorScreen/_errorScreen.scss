@@ -1,0 +1,21 @@
+@use '../misc/variables' as *;
+.error-screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $darkBlueColor;
+    opacity: 0.9;
+    font-size: clamp(3rem, 2vw, 10rem);
+    top: -100vh;
+    transition: 0.25s ease-in-out;
+}
+
+.error-message {
+    color: $errorColor;
+    opacity: 1;
+}
