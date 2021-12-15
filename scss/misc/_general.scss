@@ -1,22 +1,32 @@
 @use './variables' as *;
 body {
-  font-family: $mainFont;
+    font-family: $mainFont;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .quiz-screen {
-  height: 100vh;
-  width: 100vw;
-  //   background-color: aqua;
-  display: grid;
-  grid-template-columns: 15% 1fr;
-  grid-template-rows: 100%;
-  grid-template-areas: 'nav-bar main-container';
-  overflow: hidden;
-  position: absolute;
-  background-color: $darkBlueColor;
-  padding: 5vh 5vw;
+    height: 100vh;
+    width: 100vw;
+    //   background-color: aqua;
+    display: grid;
+    grid-template-columns: 15% 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: 'nav-bar main-container';
+    overflow: hidden;
+    position: absolute;
+    background-color: $darkBlueColor;
+    padding: 5vh 5vw;
+}
+
+@media (max-width: 30em) {
+    .quiz-screen {
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 1fr;
+        grid-template-areas:
+            'nav-bar'
+            'main-container';
+    }
 }

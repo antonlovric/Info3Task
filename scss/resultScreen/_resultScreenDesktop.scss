@@ -1,6 +1,22 @@
+@use '../misc/variables' as *;
 .result-screen {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  top: -100vh;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $darkBlueColor;
+    opacity: 0.9;
+    font-size: clamp(3rem, 2vw, 10rem);
+    top: -100vh;
+    transition: 0.25s ease-in-out;
+    color: $lightBlueColor;
+    flex-direction: column;
+}
+
+.result-container {
+    margin-left: 10rem;
 }

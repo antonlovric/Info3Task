@@ -1,0 +1,11 @@
+@media screen and (max-width: 30em) {
+    .nav-bar {
+        grid-area: nav-bar;
+        display: flex;
+        flex-direction: row;
+        &__element {
+            width: 80%;
+            height: auto;
+        }
+    }
+}
