@@ -8,3 +8,5 @@ Zadatak izrađen prilikom prijave za posao na poziciji Junior Front-end Develope
   - SASS/SCSS
   - JavaScript
   - GIT
+
+Live prikaz stranice: https://antonlovric.github.io/Info3Task/
