@@ -124,7 +124,6 @@ function showResults() {
         } else
             firstQuestionAnswers.textContent +=
                 ' ' + firstAnswers[i].textContent;
-        console.log(allResults[0].textContent);
     }
     for (let i = 0; i < secondAnswers.length; i++) {
         const secondQuestionAnswers = allResults[1].querySelector(

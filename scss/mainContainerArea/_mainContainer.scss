@@ -9,13 +9,11 @@
     overflow-x: hidden;
     scrollbar-width: none;
     &__header-area {
-        // background-color: yellow;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         flex-direction: row;
         .question-button {
-            // padding: 3rem;
             height: clamp(2rem, 5vw, 4rem);
             width: 15%;
             border-radius: 500rem;
@@ -57,7 +55,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            // padding: 5rem;
             height: 80%;
             .question {
                 cursor: pointer;
