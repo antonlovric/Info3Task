@@ -52,12 +52,13 @@
         grid-template-rows: repeat(4, 1fr);
         grid-template-columns: repeat(2, 1fr);
         height: 70%;
+        gap: 3rem;
         .question-container {
             display: flex;
             justify-content: center;
             align-items: center;
             // padding: 5rem;
-            height: 50%;
+            height: 80%;
             .question {
                 cursor: pointer;
                 border-radius: 100rem;

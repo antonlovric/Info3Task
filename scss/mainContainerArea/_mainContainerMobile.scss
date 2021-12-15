@@ -7,8 +7,24 @@
         .question-text {
             text-align: justify;
         }
+        &__questions {
+            height: auto;
+            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .main-container__questions .question-container {
+        height: 5rem;
     }
     .main-container__questions .question-container .question {
         width: 75%;
+    }
+    .main-container .question-text {
+        width: 80%;
+    }
+
+    .show-results-button {
+        margin-top: 5rem;
     }
 }

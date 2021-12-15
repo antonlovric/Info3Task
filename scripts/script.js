@@ -1,3 +1,5 @@
+// Variables and Constants
+
 const nextButtons = document.querySelectorAll('.next-button');
 const prevButtons = document.querySelectorAll('.previous-button');
 const showResultsButton = document.querySelector('.show-results-button');
@@ -5,46 +7,16 @@ const questionContainers = document.querySelectorAll('.question-area');
 const questions = document.querySelectorAll('.question');
 const navBarElements = document.querySelectorAll('.nav-bar__element');
 
+showResultsButton.disabled = true;
+
 let nextQuestionIndex = 1;
 let currentQuestionIndex = 0;
 let previousQuestionIndex = -1;
 
+// Event Listeners
+
 window.addEventListener('DOMContentLoaded', generateAnswers);
 window.addEventListener('resize', adjustButtonText);
-
-if (window.innerWidth < 950) adjustButtonText();
-
-function adjustButtonText() {
-    if (window.innerWidth < 950) {
-        nextButtons.forEach((button) => {
-            button.textContent = '=>';
-        });
-        prevButtons.forEach((button) => {
-            button.textContent = '<=';
-        });
-    } else if (nextButtons[0].textContent == '=>') {
-        nextButtons.forEach((button) => {
-            button.textContent = 'Next';
-        });
-        prevButtons.forEach((button) => {
-            button.textContent = 'Previous';
-        });
-    }
-}
-
-navBarElements.forEach((element) => {
-    element.addEventListener('click', () => {
-        navigateToQuestion(element.firstChild.textContent);
-    });
-});
-
-function navigateToQuestion(index) {
-    currentQuestionIndex = index - 2;
-    nextQuestionIndex = index - 1;
-    previousQuestionIndex = index - 3;
-    nextQuestion();
-    updateNavBar(currentQuestionIndex);
-}
 
 questions.forEach((question) => {
     question.addEventListener('click', () => {
@@ -60,6 +32,72 @@ prevButtons.forEach((button) => {
 showResultsButton.addEventListener('click', () => {
     showResults();
 });
+
+navBarElements.forEach((element) => {
+    element.addEventListener('click', () => {
+        navigateToQuestion(element.firstChild.textContent);
+    });
+});
+
+//Navigation Functions
+
+function navigateToQuestion(index) {
+    currentQuestionIndex = index - 2;
+    nextQuestionIndex = index - 1;
+    previousQuestionIndex = index - 3;
+    nextQuestion();
+    updateNavBar(currentQuestionIndex);
+}
+
+function nextQuestion() {
+    updateNavBar(++currentQuestionIndex);
+    const distance = nextQuestionIndex * 100;
+    document.querySelector('.container').style.transform =
+        'translateX(-' + distance + '%)';
+    nextQuestionIndex++;
+    previousQuestionIndex++;
+}
+
+function previousQuestion() {
+    updateNavBar(--currentQuestionIndex);
+    const distance = previousQuestionIndex * 100;
+    document.querySelector('.container').style.transform =
+        'translateX(-' + distance + '%)';
+    previousQuestionIndex--;
+    nextQuestionIndex--;
+}
+
+//Question Related Functions
+
+function generateAnswers() {
+    questionContainers.forEach((questionContainer, i) => {
+        const answers = questionContainer.querySelectorAll(
+            '.question-container'
+        );
+        const numberofAnswers = generateNumberOfAnswers(i + 3);
+        for (let i = numberofAnswers; i < 8; i++) {
+            answers[i].style.display = 'none';
+        }
+    });
+}
+
+async function toggleQuestion(question) {
+    try {
+        const check = await checkForErrors(question);
+    } catch (error) {
+        showError(error.message);
+        return;
+    }
+    question.classList.toggle('selected-question');
+    updateNavBar(currentQuestionIndex);
+    updateResultButton();
+}
+
+function generateNumberOfAnswers(min) {
+    return Math.round(Math.random() * (8 - min) + min);
+}
+
+//Show Different Screens Functions
 
 function showResults() {
     const resultScreen = document.querySelector('.result-screen');
@@ -98,50 +136,8 @@ function showResults() {
                 ' ' + fourthAnswers[i].textContent + ', ';
         } else allResults[3].innerHTML += ' ' + fourthAnswers[i].textContent;
     }
+    window.scrollTo(0, 0);
     resultScreen.style.top = '0';
-}
-
-function nextQuestion() {
-    updateNavBar(++currentQuestionIndex);
-    const distance = nextQuestionIndex * 100;
-    document.querySelector('.container').style.transform =
-        'translateX(-' + distance + '%)';
-    nextQuestionIndex++;
-    previousQuestionIndex++;
-}
-
-function previousQuestion() {
-    updateNavBar(--currentQuestionIndex);
-
-    const distance = previousQuestionIndex * 100;
-    document.querySelector('.container').style.transform =
-        'translateX(-' + distance + '%)';
-    previousQuestionIndex--;
-    nextQuestionIndex--;
-}
-
-function generateAnswers() {
-    questionContainers.forEach((questionContainer, i) => {
-        const answers = questionContainer.querySelectorAll(
-            '.question-container'
-        );
-        const numberofAnswers = generateNumberOfAnswers(i + 3);
-        for (let i = numberofAnswers; i < 8; i++) {
-            answers[i].style.display = 'none';
-        }
-    });
-}
-
-async function toggleQuestion(question) {
-    try {
-        const check = await checkForErrors(question);
-    } catch (error) {
-        showError(error.message);
-        return;
-    }
-    question.classList.toggle('selected-question');
-    updateNavBar(currentQuestionIndex);
-    updateResultButton();
 }
 
 async function checkForErrors(question) {
@@ -166,9 +162,7 @@ function showError(message) {
     }, 3000);
 }
 
-function generateNumberOfAnswers(min) {
-    return Math.round(Math.random() * (8 - min) + min);
-}
+// Update Functions
 
 function updateNavBar(index) {
     navBarElements.forEach((element) => {
@@ -198,3 +192,23 @@ function updateResultButton() {
     }
 }
 updateNavBar(currentQuestionIndex);
+
+if (window.innerWidth < 950) adjustButtonText();
+
+function adjustButtonText() {
+    if (window.innerWidth < 950) {
+        nextButtons.forEach((button) => {
+            button.textContent = '=>';
+        });
+        prevButtons.forEach((button) => {
+            button.textContent = '<=';
+        });
+    } else if (nextButtons[0].textContent == '=>') {
+        nextButtons.forEach((button) => {
+            button.textContent = 'Next';
+        });
+        prevButtons.forEach((button) => {
+            button.textContent = 'Previous';
+        });
+    }
+}
