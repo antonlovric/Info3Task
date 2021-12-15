@@ -4,13 +4,33 @@ const showResultsButton = document.querySelector('.show-results-button');
 const questionContainers = document.querySelectorAll('.question-area');
 const questions = document.querySelectorAll('.question');
 const navBarElements = document.querySelectorAll('.nav-bar__element');
-// questionContainers[1].scrollIntoView();
 
 let nextQuestionIndex = 1;
 let currentQuestionIndex = 0;
 let previousQuestionIndex = -1;
 
 window.addEventListener('DOMContentLoaded', generateAnswers);
+window.addEventListener('resize', adjustButtonText);
+
+if (window.innerWidth < 950) adjustButtonText();
+
+function adjustButtonText() {
+    if (window.innerWidth < 950) {
+        nextButtons.forEach((button) => {
+            button.textContent = '=>';
+        });
+        prevButtons.forEach((button) => {
+            button.textContent = '<=';
+        });
+    } else if (nextButtons[0].textContent == '=>') {
+        nextButtons.forEach((button) => {
+            button.textContent = 'Next';
+        });
+        prevButtons.forEach((button) => {
+            button.textContent = 'Previous';
+        });
+    }
+}
 
 navBarElements.forEach((element) => {
     element.addEventListener('click', () => {

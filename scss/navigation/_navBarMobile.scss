@@ -1,11 +1,10 @@
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 36em) {
     .nav-bar {
         grid-area: nav-bar;
         display: flex;
         flex-direction: row;
         &__element {
-            width: 80%;
-            height: auto;
+            max-height: 100%;
         }
     }
 }

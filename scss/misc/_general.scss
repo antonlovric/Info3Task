@@ -15,18 +15,23 @@ button {
     grid-template-columns: 15% 1fr;
     grid-template-rows: 100%;
     grid-template-areas: 'nav-bar main-container';
-    overflow: hidden;
     position: absolute;
     background-color: $darkBlueColor;
-    padding: 5vh 5vw;
+    padding: 2vh 5vw 1vh 5vw;
 }
 
-@media (max-width: 30em) {
+.body-wrapper {
+    overflow: hidden;
+}
+
+@media (max-width: 36rem) {
     .quiz-screen {
         grid-template-columns: 1fr;
         grid-template-rows: 20% 1fr;
         grid-template-areas:
             'nav-bar'
             'main-container';
+        gap: 5rem;
+        height: auto;
     }
 }

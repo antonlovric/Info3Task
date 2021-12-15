@@ -1,0 +1,14 @@
+@media screen and (max-width: 36rem) {
+    .question-button {
+        position: relative;
+        top: 2.7rem;
+    }
+    .main-container {
+        .question-text {
+            text-align: justify;
+        }
+    }
+    .main-container__questions .question-container .question {
+        width: 75%;
+    }
+}

@@ -6,7 +6,8 @@
 }
 
 .main-container {
-    overflow: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
     &__header-area {
         // background-color: yellow;
         display: flex;
@@ -26,7 +27,7 @@
         }
         .question-title {
             color: white;
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 600;
         }
         .question-underline {

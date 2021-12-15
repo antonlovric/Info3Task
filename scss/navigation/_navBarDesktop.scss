@@ -11,10 +11,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: auto;
+        width: 80%;
         aspect-ratio: 1;
         background-color: $lightBlueColor;
-        height: 20%;
+        max-height: 20%;
         border: 2px solid black;
         font-size: clamp(2.5rem, 4.5vw, 6rem);
         transition: background-color 0.3s ease-in-out;
