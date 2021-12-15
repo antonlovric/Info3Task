@@ -115,26 +115,49 @@ function showResults() {
         .querySelector('.main-container__questions')
         .querySelectorAll('.selected-question');
     for (let i = 0; i < firstAnswers.length; i++) {
+        const firstQuestionAnswers = allResults[0].querySelector(
+            '.answered-questions'
+        );
         if (i + 1 != firstAnswers.length) {
-            allResults[0].innerHTML += ' ' + firstAnswers[i].textContent + ', ';
-        } else allResults[0].innerHTML += ' ' + firstAnswers[i].textContent;
+            firstQuestionAnswers.textContent +=
+                ' ' + firstAnswers[i].textContent + ', ';
+        } else
+            firstQuestionAnswers.textContent +=
+                ' ' + firstAnswers[i].textContent;
+        console.log(allResults[0].textContent);
     }
     for (let i = 0; i < secondAnswers.length; i++) {
+        const secondQuestionAnswers = allResults[1].querySelector(
+            '.answered-questions'
+        );
         if (i + 1 != secondAnswers.length) {
-            allResults[1].innerHTML +=
+            secondQuestionAnswers.textContent +=
                 ' ' + secondAnswers[i].textContent + ', ';
-        } else allResults[1].innerHTML += ' ' + secondAnswers[i].textContent;
+        } else
+            secondQuestionAnswers.textContent +=
+                ' ' + secondAnswers[i].textContent;
     }
     for (let i = 0; i < thirdAnswers.length; i++) {
+        const thirdQuestionAnswers = allResults[2].querySelector(
+            '.answered-questions'
+        );
         if (i + 1 != thirdAnswers.length) {
-            allResults[2].innerHTML += ' ' + thirdAnswers[i].textContent + ', ';
-        } else allResults[2].innerHTML += ' ' + thirdAnswers[i].textContent;
+            thirdQuestionAnswers.textContent +=
+                ' ' + thirdAnswers[i].textContent + ', ';
+        } else
+            thirdQuestionAnswers.textContent +=
+                ' ' + thirdAnswers[i].textContent;
     }
     for (let i = 0; i < fourthAnswers.length; i++) {
+        const fourthQuestionAnswers = allResults[3].querySelector(
+            '.answered-questions'
+        );
         if (i + 1 != fourthAnswers.length) {
-            allResults[3].innerHTML +=
+            fourthQuestionAnswers.textContent +=
                 ' ' + fourthAnswers[i].textContent + ', ';
-        } else allResults[3].innerHTML += ' ' + fourthAnswers[i].textContent;
+        } else
+            fourthQuestionAnswers.textContent +=
+                ' ' + fourthAnswers[i].textContent;
     }
     window.scrollTo(0, 0);
     resultScreen.style.top = '0';
