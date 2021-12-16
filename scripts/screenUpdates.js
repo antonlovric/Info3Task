@@ -1,6 +1,8 @@
 const questionContainers = document.querySelectorAll('.question-area');
 const navBarElements = document.querySelectorAll('.nav-bar__element');
 const showResultsButton = document.querySelector('.show-results-button');
+const nextButtons = document.querySelectorAll('.next-button');
+const prevButtons = document.querySelectorAll('.previous-button');
 
 function updateNavBar(index) {
     navBarElements.forEach((element) => {

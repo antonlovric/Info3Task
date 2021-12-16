@@ -121,4 +121,4 @@ async function checkForErrors(question) {
 
 updateNavBar(currentQuestionIndex);
 
-if (window.innerWidth < 950) adjustButtonText();
+adjustButtonText();
